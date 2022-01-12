@@ -14,8 +14,13 @@ public class MyLeadsPage extends BaseClass{
 	}
 	
 	public CreateLeadPage clickCreateLeadLink() {
-		driver.findElement(By.linkText("Create Lead")).click();
+		String cl = prop1.getProperty("MyLeads_CreateLead_LinkText");
+		driver.findElement(By.linkText(cl)).click();
 		return new CreateLeadPage(driver);
 	}
 
+	public FindLeadsPage clickFindLeadsLink() {
+		driver.findElement(By.linkText("Find Leads")).click();
+		return new FindLeadsPage(driver);
+	}
 }

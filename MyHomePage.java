@@ -14,7 +14,8 @@ public class MyHomePage extends BaseClass{
 	}
 	
 	public MyLeadsPage clickLeadsLink() {
-		driver.findElement(By.linkText("Leads")).click();
+		String leads = prop1.getProperty("MyHome_Leads_LinkText");
+		driver.findElement(By.linkText(leads)).click();
 		return new MyLeadsPage(driver);
 	}
 

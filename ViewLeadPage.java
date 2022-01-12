@@ -14,9 +14,7 @@ public class ViewLeadPage extends BaseClass{
 	
 	public ViewLeadPage verifyFirstName() {
 		System.out.println("Firstname is displayed");
-		
 		return this;
-
 	}
 
 }

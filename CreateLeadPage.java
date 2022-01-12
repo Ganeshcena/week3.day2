@@ -6,11 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import base.BaseClass;
 
 public class CreateLeadPage extends BaseClass {
-	
+
 
 	public CreateLeadPage(ChromeDriver driver) {
 		this.driver = driver;
-		
+
 	}
 
 	public CreateLeadPage enterFirstName(String firstName) {
@@ -30,13 +30,8 @@ public class CreateLeadPage extends BaseClass {
 	}
 
 	public ViewLeadPage clickCreateLeadButton() {
-
 		driver.findElement(By.name("submitButton")).click();
-		
 		return new ViewLeadPage(driver);
-		
-		
-		
 	}
 
 }

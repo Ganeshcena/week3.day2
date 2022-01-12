@@ -5,23 +5,19 @@ import org.testng.annotations.Test;
 
 import base.BaseClass;
 import pages.LoginPage;
+import pages.MyLeadsPage;
 
-public class CreateLead extends BaseClass{
+public class CreateLead2 extends BaseClass{
 	
 	@BeforeTest
 	public void setData() {
-		fileName = "CreateLead";
+		fileName = "CreateLead2";
 	}
 	
 	@Test(dataProvider = "sendData")
-	public void runCreateLead(String username, String password, String company, String firstName, String lastName) throws InterruptedException {
+	public void runCreateLead(String company, String firstName, String lastName) throws InterruptedException {
 				
-		new LoginPage(driver)
-		.enterUsername(username)
-		.enterPassword(password)
-		.clickLoginButton()
-		.clickCrmsfaLink()
-		.clickLeadsLink()
+		new MyLeadsPage(driver)
 		.clickCreateLeadLink()
 		.enterFirstName(firstName)
 		.enterLastName(lastName)
