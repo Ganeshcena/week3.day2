@@ -1,50 +1,35 @@
-package testNG;
+package testcases;
 
-
-import java.io.IOException;
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import steps.BaseClass;
+import base.BaseClass;
+import pages.LoginPage;
 
-public class CreateLead extends BaseClass {
+public class CreateLead extends BaseClass{
 	
-	@BeforeClass
+	@BeforeTest
 	public void setData() {
 		fileName = "CreateLead";
-		
-
 	}
-
-	// MethodMatcherException
+	
 	@Test(dataProvider = "sendData")
-	public void runCreateLead(String company, String firstName,String lastName) {
-		driver.findElement(By.linkText("CRM/SFA123")).click();
-		driver.findElement(By.linkText("Leads")).click();
-		driver.findElement(By.linkText("Create Lead")).click();
-		driver.findElement(By.id("createLeadForm_companyName")).sendKeys(company);
-		driver.findElement(By.id("createLeadForm_firstName")).sendKeys(firstName);
-		driver.findElement(By.id("createLeadForm_lastName")).sendKeys(lastName);
-		driver.findElement(By.name("submitButton")).click();
+	public void runCreateLead(String username, String password, String company, String firstName, String lastName) throws InterruptedException {
+				
+		new LoginPage(driver)
+		.enterUsername(username)
+		.enterPassword(password)
+		.clickLoginButton()
+		.clickCrmsfaLink()
+		.clickLeadsLink()
+		.clickCreateLeadLink()
+		.enterFirstName(firstName)
+		.enterLastName(lastName)
+		.enterCompanyName(company)
+		.clickCreateLeadButton()
+		.verifyFirstName();
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
-

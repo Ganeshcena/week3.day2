@@ -1,5 +1,4 @@
-package testcasesWeek5;
-
+package utils;
 
 import java.io.IOException;
 
@@ -44,19 +43,7 @@ public class ReadExcel {
 
 		// Close workbook
 		wb.close();
-		/*
-		 * String[][] data = new String[2][3];
-	
-		data[0][0] = "Testleaf"; //index starts with 0
-		data[0][1] = "Hari";
-		data[0][2] = "R";
 		
-		data[1][0] = "Qeagle"; 
-		data[1][1] = "Babu";
-		data[1][2] = "M";
-		
-		return data;
-		 */
 		return data;
 	}
 }
