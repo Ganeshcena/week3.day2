@@ -1,4 +1,5 @@
-package testcasesWeek5;
+package testNG;
+
 
 import java.io.IOException;
 import java.time.Duration;
@@ -10,18 +11,21 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import steps.BaseClass;
 
 public class CreateLead extends BaseClass {
 	
 	@BeforeClass
 	public void setData() {
 		fileName = "CreateLead";
+		
+
 	}
 
 	// MethodMatcherException
 	@Test(dataProvider = "sendData")
 	public void runCreateLead(String company, String firstName,String lastName) {
-		driver.findElement(By.linkText("CRM/SFA")).click();
+		driver.findElement(By.linkText("CRM/SFA123")).click();
 		driver.findElement(By.linkText("Leads")).click();
 		driver.findElement(By.linkText("Create Lead")).click();
 		driver.findElement(By.id("createLeadForm_companyName")).sendKeys(company);
@@ -43,3 +47,4 @@ public class CreateLead extends BaseClass {
 	
 
 }
+
